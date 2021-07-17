@@ -47,3 +47,11 @@
     <font color="#4E9A06">✓</font> should not be able to a non admin user get list of all users (2 ms)
     <font color="#4E9A06">✓</font> should not be able to a non existing user get list of all users (2 ms)
 </pre>
+
+<pre><b>Test Suites: </b><font color="#8AE234"><b>7 passed</b></font>, 7 total
+<b>Tests:       </b><font color="#8AE234"><b>25 passed</b></font>, 25 total
+<b>Snapshots:   </b>0 total
+<b>Time:</b>        <font color="#FCE94F"><b>4.686 s</b></font>
+<font color="#AAAAAA">Ran all test suites.</font>
+Done in 5.33s.
+</pre>
