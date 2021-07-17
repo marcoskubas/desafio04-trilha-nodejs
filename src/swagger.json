@@ -1,0 +1,170 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "title": "Desafio - Introdução ao SOLID",
+    "description": "This is an API SOLID",
+    "version" : "1.0.0",
+    "contact": {
+      "name": "Marcos Kubas",
+      "email" : "marcoskubas@gmail.com"
+    }
+  },
+  "paths" : {
+    "/users" : {
+      "post" : {
+        "tags" : ["User"],
+        "summary" : "Create a user",
+        "description" : "Create a new user",
+        "requestBody" : {
+          "content" : {
+            "application/json": {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "name" : {
+                    "type" : "string"
+                  },
+                  "email" : {
+                    "type" : "string"
+                  }
+                },
+                "example" : {
+                  "name" : "user name sample",
+                  "email" : "user email sample"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201" : {
+            "description": "Created"
+          },
+          "400" : {
+            "description" : "User already exists!"
+          }
+        }
+      },
+      "get" : {
+        "tags" : ["User"],
+        "summary" : "List all users",
+        "description" : "List all users",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in" : "header",
+            "required": true,
+            "type" : "string"
+          }
+        ],
+        "responses" : {
+          "200" : {
+            "description": "Success",
+            "content" : {
+              "application/json" : {
+                "schema": {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "object",
+                    "properties": {
+                      "name" : {
+                        "type" : "string"
+                      },
+                      "email" : {
+                        "type" : "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "User not admin!"
+          }
+        }
+      }
+    },
+    "/users/{user_id}" : {
+      "get" : {
+        "tags" : ["User"],
+        "summary" : "Show Profile User",
+        "description" : "Show Profile User",
+        "parameters": [
+          {
+            "name" : "user_id",
+            "in" : "path",
+            "description": "ID of the user",
+            "required": true,
+            "type" : "string"
+          }
+        ],
+        "responses" : {
+          "200" : {
+            "description": "Success",
+            "content" : {
+              "application/json" : {
+                "schema": {
+                  "type" : "object",
+                  "properties": {
+                    "name" : {
+                      "type" : "string"
+                    },
+                    "email" : {
+                      "type" : "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "User not found!"
+          }
+        }
+      }
+    },
+    "/users/{user_id}/admin" : {
+      "patch" : {
+        "tags" : ["User"],
+        "summary" : "Turn User admin",
+        "description" : "Turn User admin",
+        "parameters": [
+          {
+            "name" : "user_id",
+            "in" : "path",
+            "description": "ID of the user for update to admin",
+            "required": true,
+            "type" : "string"
+          }
+        ],
+        "responses" : {
+          "200" : {
+            "description": "Success",
+            "content" : {
+              "application/json" : {
+                "schema": {
+                  "type" : "object",
+                  "items" : {
+                    "type" : "object",
+                    "properties": {
+                      "name" : {
+                        "type" : "string"
+                      },
+                      "email" : {
+                        "type" : "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "User not found!"
+          }
+        }
+      }
+    }
+  }
+}

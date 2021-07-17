@@ -55,3 +55,18 @@
 <font color="#AAAAAA">Ran all test suites.</font>
 Done in 5.33s.
 </pre>
+
+### Install and Run Project
+
+```
+yarn
+yarn dev
+```
+
+### URL API
+
+http://localhost:3000/
+
+### Doc Swagger
+
+http://localhost:3000/api-docs/#/
