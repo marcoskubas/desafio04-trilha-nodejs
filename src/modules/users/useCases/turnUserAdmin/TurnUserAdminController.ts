@@ -9,7 +9,6 @@ class TurnUserAdminController {
     const { user_id } = request.params;
     try {
       const user = this.turnUserAdminUseCase.execute({user_id});
-      console.log(user);
       return response.status(200).json(user);
     }catch (e){
       return response.status(404).json({error: e.toString()});
